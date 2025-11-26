@@ -20,12 +20,16 @@ You can also test the API easily using the built-in Swagger UI.
 
 ## How to run the backend
 1. Install the required packages:
+   pip install fastapi uvicorn
+   
 2. Start the backend server:
-3. Open the testing page:
+   uvicorn main:app --reload
 
+3. Open the testing page:
+   Go to: http://127.0.0.1:8000/docs
 
 ## Example
-If you input:
+If you input: I have fever, headache, and sore throat for two days.
 
 
 The system may respond with:
@@ -39,7 +43,16 @@ Future versions can include:
 - Better symptom extraction  
 - Machine learning models  
 - A proper UI  
-- Advanced reasoning agents  
+- Advanced reasoning agents
+
+## How the project works (Architecture)
+The project works in a simple layered structure:
+
+- **Input Layer:** The user provides symptoms in plain text.  
+- **Intelligence Layer:** Small agents analyze the symptoms, suggest possible conditions, and recommend tests.  
+- **Output Layer:** Provides a clean summary including diagnosis, suggested tests, and short clinical notes.  
+- **Optional Logging Layer:** Stores inputs and outputs for later improvements.
+
 
 ## Disclaimer
 This is an educational project only and should not be used for real medical diagnosis.
