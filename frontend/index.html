@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clinical Co-Pilot</title>
+</head>
+<body style="font-family: Arial; max-width: 600px; margin: auto; padding: 20px;">
+
+    <h2>Clinical Co-Pilot</h2>
+    <p>Enter symptoms below to get a basic assessment.</p>
+
+    <textarea id="symptoms" rows="5" style="width: 100%;"></textarea>
+    <br><br>
+
+    <button onclick="submitSymptoms()" style="padding: 8px 16px;">
+        Get Diagnosis
+    </button>
+
+    <h3>Result:</h3>
+    <pre id="output" style="background: #f5f5f5; padding: 10px;"></pre>
+
+    <script>
+        async function submitSymptoms() {
+            const symptoms = document.getElementById("symptoms").value;
+
+            const response = await fetch("http://127.0.0.1:8000/predict", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ symptoms })
+            });
+
+            const result = await response.json();
+            document.getElementById("output").textContent = JSON.stringify(result, null, 2);
+        }
+    </script>
+
+</body>
+</html>
