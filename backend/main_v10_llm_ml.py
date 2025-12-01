@@ -1,10 +1,3 @@
-# ---------------------------
-# Clinical Agent Hackathon - Professional Version
-# ---------------------------
-
-# ---------------------------
-# Import Libraries
-# ---------------------------
 from reportlab.lib.pagesizes import A4
 from reportlab.lib import colors
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, Image
@@ -18,24 +11,21 @@ import os
 from dotenv import load_dotenv
 import openai
 
-# ---------------------------
+
 # Load Environment Variables
-# ---------------------------
 load_dotenv()
 OPENAI_KEY = os.getenv("OPENAI_API_KEY")
 openai.api_key = OPENAI_KEY
 
-# ---------------------------
+
 # Setup Logging
-# ---------------------------
 logging.basicConfig(filename='agent_log.txt', level=logging.INFO,
                     format='%(asctime)s - %(message)s')
 
 logging.info("Clinical Agent Run Started.")
 
-# ---------------------------
+
 # Synthetic Patient Dataset
-# ---------------------------
 patient_data = pd.DataFrame({
     "Patient ID": [101, 102, 103, 104, 105],
     "Age": [45, 50, 30, 60, 28],
@@ -44,9 +34,8 @@ patient_data = pd.DataFrame({
     "Cholesterol": [200, 230, 180, 240, 170]
 })
 
-# ---------------------------
+
 # Predict Patient Condition
-# ---------------------------
 def predict_condition(row):
     """
     Simulate model prediction for each patient.
@@ -60,18 +49,16 @@ def predict_condition(row):
 
 patient_data[['Predicted Condition', 'Probability']] = patient_data.apply(predict_condition, axis=1)
 
-# ---------------------------
+
 # Professional Dummy Recommendations
-# ---------------------------
 dummy_recommendations = {
     "Diabetes": "Maintain a balanced diet, monitor blood glucose regularly, and exercise consistently.",
     "Hypertension": "Reduce sodium intake, exercise regularly, and monitor blood pressure daily.",
     "Normal": "Continue healthy lifestyle habits and routine health checkups."
 }
 
-# ---------------------------
+
 # Generate Recommendations (API + Dummy Fallback)
-# ---------------------------
 def generate_recommendations_batch(conditions):
     """
     Generate health recommendations for patients.
@@ -124,9 +111,8 @@ def generate_recommendations_batch(conditions):
 
 patient_data['Recommendation'], dummy_used_flag = generate_recommendations_batch(patient_data['Predicted Condition'].tolist())
 
-# ---------------------------
+
 # Static Model Performance Metrics
-# ---------------------------
 model_results = {
     "Model": ["LightGBM", "XGBoost", "RandomForest"],
     "Accuracy": [0.92, 0.90, 0.88],
@@ -136,9 +122,8 @@ model_results = {
 }
 df_metrics = pd.DataFrame(model_results)
 
-# ---------------------------
+
 # Generate Accuracy Chart
-# ---------------------------
 plt.figure(figsize=(6,4))
 plt.bar(df_metrics["Model"], df_metrics["Accuracy"], color=['skyblue', 'orange', 'green'])
 plt.title("Model Accuracy Comparison")
@@ -147,9 +132,8 @@ chart_file = "accuracy_chart_professional.png"
 plt.savefig(chart_file)
 plt.close()
 
-# ---------------------------
+
 # Generate PDF Report
-# ---------------------------
 pdf_file = "Clinical_Agent_Report_Professional.pdf"
 doc = SimpleDocTemplate(pdf_file, pagesize=A4)
 styles = getSampleStyleSheet()
@@ -231,4 +215,3 @@ doc.build(story)
 
 print(f"Professional Hackathon agent report generated: {pdf_file}")
 print("Agent predictions and recommendations logged in 'agent_log.txt'")
-
