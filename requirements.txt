@@ -1,0 +1,17 @@
+fastapi
+pydantic
+joblib
+numpy
+scikit-learn
+xgboost
+lightgbm
+langchain
+langchain-openai
+langchain-community
+faiss-cpu
+python-dotenv
+reportlab
+matplotlib
+pandas
+openai
+uvicorn
