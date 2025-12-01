@@ -1,5 +1,3 @@
-import langchain 
-
 from langchain.chains import RetrievalQA # type: ignore
 from langchain_community.vectorstores import FAISS
 from langchain_openai import ChatOpenAI, OpenAIEmbeddings
