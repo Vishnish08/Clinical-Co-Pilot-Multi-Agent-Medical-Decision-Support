@@ -4,25 +4,27 @@
 
 #### The project is designed for learning, experimentation, and portfolio showcase, demonstrating how a simple medical AI backend can be built using FastAPI, LLMs, and light reasoning agents.
 
+
 ## Features
 
-Plain-text symptom input
+1. Plain-text symptom input
 
-Reasoning + rules + LLM processing
+2. Reasoning + rules + LLM processing
 
-Returns:
+3. Returns:
 
-Likely medical condition
+3.1. Likely medical condition
 
-Recommended diagnostic tests
+3.2. Recommended diagnostic tests
 
-Doctor-style clinical summary
+3.3. Doctor-style clinical summary
 
-PDF report generation supported
+4. PDF report generation supported
 
-FastAPI backend with Swagger UI
+5. FastAPI backend with Swagger UI
 
-Fully local backend, easy to run
+6. Fully local backend, easy to run
+
 
 ## System Overview
 1. Input Layer
@@ -34,23 +36,24 @@ Users enter free-form symptoms such as:
 
 The backend combines:
 
-Lightweight rule-based logic
+2.1. Lightweight rule-based logic
 
-LLM reasoning
+2.2. LLM reasoning
 
-Simple confidence computations
+2.3. Simple confidence computations
 
 3. Output Layer
 
 The system returns:
 
-Likely Diagnosis
+3.1. Likely Diagnosis
 
-Suggested Diagnostic Tests
+3.2. Suggested Diagnostic Tests
 
-Clinical Summary Note
+3.3. Clinical Summary Note
 
-Optional PDF Report
+3.4. Optional PDF Report
+
 
 ## Project Structure
 .
@@ -60,8 +63,9 @@ Optional PDF Report
 └── .env (created by user)  # API key storage
 
 
-There are no models, no utils, no extra backend folders.
-Everything is contained inside main.py for clarity.
+#### There are no models, no utils, no extra backend folders.
+#### Everything is contained inside main.py for clarity.
+
 
 ## Installation & Setup
 1. Clone the repository
@@ -88,6 +92,7 @@ http://127.0.0.1:8000/docs
 
 From here, you can test the API without writing any code.
 
+
 ## Example
 Input
 
@@ -95,33 +100,36 @@ Input
 
 Output
 
-Condition: Possible Viral Infection
+1. Condition: Possible Viral Infection
 
-Recommended Tests: CBC, CRP
+2. Recommended Tests: CBC, CRP
 
-Clinical Summary: A structured note summarizing symptoms and assessment
+3. Clinical Summary: A structured note summarizing symptoms and assessment
+
+   
 
 ## Purpose of This Project
 
 This project serves as:
 
-A beginner-friendly medical AI backend
+1. A beginner-friendly medical AI backend
 
-A portfolio showcase for ML + AI + FastAPI
+2. A portfolio showcase for ML + AI + FastAPI
 
-A foundation for future enhancements, including:
+3. A foundation for future enhancements, including:
 
-Machine learning models
+3.1. Machine learning models
 
-Medical knowledge graphs
+3.2. Medical knowledge graphs
 
-Multi-agent architectures
+3.3. Multi-agent architectures
 
-Structured UI dashboard
+3.4. Structured UI dashboard
 
-Electronic medical history retrieval
+3.5. Electronic medical history retrieval
+
 
 ## Disclaimer
 
-This system is for educational, experimental, and portfolio purposes only.
-It must NOT be used for real medical diagnosis, treatment, or patient care.
+#### This system is for educational, experimental, and portfolio purposes only.
+#### It must NOT be used for real medical diagnosis, treatment, or patient care.
