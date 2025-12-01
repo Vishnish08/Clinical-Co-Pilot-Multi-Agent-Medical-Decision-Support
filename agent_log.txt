@@ -65,3 +65,4 @@
 2025-12-01 20:06:16,036 - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 429 Too Many Requests"
 2025-12-01 20:06:16,037 - LLM Batch Error: Error code: 429 - {'error': {'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.', 'type': 'insufficient_quota', 'param': None, 'code': 'insufficient_quota'}}
 2025-12-01 20:06:16,037 - Using professional dummy recommendations for all patients due to API error.
+
