@@ -1,166 +1,127 @@
-Clinical Co-Pilot – Multi-Agent Medical Decision Support System
+# Clinical Co-Pilot – Multi-Agent Medical Decision Support System
 
-Clinical Co-Pilot is a multi-agent medical decision support system designed to help analyze user-reported symptoms and provide:
+#### Clinical Co-Pilot is a lightweight, multi-agent medical decision-support system that accepts symptoms as input and generates a likely diagnosis, recommended tests, and a short clinical summary.
 
-Possible diagnoses
+#### The project is designed for learning, experimentation, and portfolio showcase, demonstrating how a simple medical AI backend can be built using FastAPI, LLMs, and light reasoning agents.
+
+## Features
+
+Plain-text symptom input
+
+Reasoning + rules + LLM processing
+
+Returns:
+
+Likely medical condition
 
 Recommended diagnostic tests
 
-A brief clinical summary
+Doctor-style clinical summary
 
-This project is intended for learning, portfolio building, and demonstrating how a basic healthcare AI assistant can be structured.
+PDF report generation supported
 
-Features
+FastAPI backend with Swagger UI
 
-Accepts plain text symptom input from users
+Fully local backend, easy to run
 
-Uses rule-based logic and small agents to interpret symptoms
+## System Overview
+1. Input Layer
 
-Generates outputs including:
+Users enter free-form symptoms such as:
+“Fever, sore throat, fatigue for 2 days.”
 
-Likely medical conditions
+2. Intelligence Layer
 
-Suggested diagnostic tests
+The backend combines:
 
-Short clinical notes resembling a doctor’s assessment
+Lightweight rule-based logic
 
-Project Architecture
+LLM reasoning
 
-The system follows a layered design:
+Simple confidence computations
 
-Input Layer: Users provide symptoms in plain text.
+3. Output Layer
 
-Intelligence Layer: Small agents analyze symptoms, suggest possible conditions, and recommend tests.
+The system returns:
 
-Output Layer: Provides a clean summary including diagnosis, suggested tests, and clinical notes.
+Likely Diagnosis
 
-Optional Logging Layer: Stores inputs and outputs for future improvements and analysis.
+Suggested Diagnostic Tests
 
-Requirements
+Clinical Summary Note
 
-Python 3.10 or higher
+Optional PDF Report
 
-Dependencies (install using the provided requirements file):
+## Project Structure
+.
+├── main.py                 # Backend (FastAPI + LLM + PDF + logic)
+├── requirements.txt        # Dependencies
+├── README.md               # Documentation
+└── .env (created by user)  # API key storage
 
-fastapi
 
-pydantic
+There are no models, no utils, no extra backend folders.
+Everything is contained inside main.py for clarity.
 
-joblib
+## Installation & Setup
+1. Clone the repository
 
-numpy
+git clone https://github.com/YOUR_USERNAME/Clinical-Co-Pilot-Multi-Agent-Medical-Decision-Support
 
-scikit-learn
+2. Install dependencies
 
-xgboost
+pip install -r requirements.txt
 
-lightgbm
+3. Add your environment variables
 
-langchain
+Create a .env file:
 
-langchain-openai
+OPENAI_API_KEY=your_api_key_here
 
-langchain-community
+4. Run the backend
 
-faiss-cpu
-
-python-dotenv
-
-reportlab
-
-matplotlib
-
-pandas
-
-openai
-
-uvicorn
-
-Setup Instructions
-
-Clone the repository to your local machine.
-
-Install dependencies:
-Use the command: pip install -r requirements.txt
-
-Set up environment variables:
-
-Create a .env file in the root folder.
-
-Add your OpenAI API key: OPENAI_API_KEY=your_openai_key_here
-
-Do not commit your real API key.
-
-Run the backend server:
-
-Navigate to the backend folder and start the FastAPI server using:
 uvicorn main:app --reload
 
-Test the API:
+5. Open Swagger UI
 
-Open http://127.0.0.1:8000/docs
- in a browser to use the built-in Swagger UI.
+http://127.0.0.1:8000/docs
 
-Demo Example
+From here, you can test the API without writing any code.
 
-Input:
-"I have fever, headache, and sore throat for two days."
+## Example
+Input
 
-Output:
+"I have fever, headache, and throat pain."
 
-Likely Condition: Viral Infection
+Output
 
-Suggested Tests: CBC, CRP
+Condition: Possible Viral Infection
 
-Clinical Summary: Short note summarizing symptoms and assessment
+Recommended Tests: CBC, CRP
 
-Optional Demo Script:
-You can create a simple demo script to test the API:
+Clinical Summary: A structured note summarizing symptoms and assessment
 
-Use Python requests to send JSON data to the FastAPI endpoint.
+## Purpose of This Project
 
-Print the response to see predicted conditions and suggested tests.
+This project serves as:
 
-Sample Data
+A beginner-friendly medical AI backend
 
-Include a file data/sample_data.csv for testing your models or API responses.
+A portfolio showcase for ML + AI + FastAPI
 
-Ensure the data format matches the input your backend expects (plain text symptoms in a column called "symptoms").
+A foundation for future enhancements, including:
 
-Folder Structure
+Machine learning models
 
-backend/
+Medical knowledge graphs
 
-main.py (FastAPI backend)
+Multi-agent architectures
 
-notebooks/
+Structured UI dashboard
 
-model_training.ipynb (optional for training/testing models)
+Electronic medical history retrieval
 
-reports/ (generated PDF/visual reports)
+## Disclaimer
 
-requirements.txt (all dependencies)
-
-README.md
-
-.gitignore
-
-LICENSE
-
-Future Improvements
-
-Enhanced symptom extraction from free-text input
-
-Integration of machine learning models for better predictions
-
-Full-featured user interface for non-technical users
-
-Advanced reasoning agents for clinical decision support
-
-Optional logging and analytics for model improvement
-
-Disclaimer
-
-This project is educational only and should not be used for real medical diagnosis.
-
-This is a complete, professional, portfolio-ready README that covers everything your GitHub repo needs.
+This system is for educational, experimental, and portfolio purposes only.
+It must NOT be used for real medical diagnosis, treatment, or patient care.
