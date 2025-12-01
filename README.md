@@ -44,10 +44,13 @@ The system returns:
 ---
 
 ## **📂 Project Structure**
+```markdown
+.
 ├── main.py # Backend (FastAPI + LLM + PDF + logic)
 ├── requirements.txt # Dependencies
 ├── README.md # Documentation
 └── .env (created by user) # API key storage
+```
 
 
 #### **There are no models, no utils, no extra backend folders.**  
