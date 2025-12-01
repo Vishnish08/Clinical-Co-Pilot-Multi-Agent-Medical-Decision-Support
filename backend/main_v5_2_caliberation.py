@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 import joblib
 import numpy as np
-from sklearn.calibration import CalibratedClassifierCV
+
 
 app = FastAPI()
 
